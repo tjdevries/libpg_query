@@ -75,9 +75,9 @@ downcase_identifier(const char *ident, int len, bool warn, bool truncate)
 		unsigned char ch = (unsigned char) ident[i];
 
 		if (ch >= 'A' && ch <= 'Z')
-			ch += 'a' - 'A';
+			ch = ch;
 		else if (enc_is_single_byte && IS_HIGHBIT_SET(ch) && isupper(ch))
-			ch = tolower(ch);
+			ch = ch;
 		result[i] = (char) ch;
 	}
 	result[i] = '\0';
